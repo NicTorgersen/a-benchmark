@@ -5,5 +5,10 @@
 			"path": "..",
 			"folder_exclude_path": ["node_modules"]
 		}
-	]
+	],
+	"settings":
+    {
+        "tab_size": 2,
+        "translate_tabs_to_spaces": true
+    },
 }
