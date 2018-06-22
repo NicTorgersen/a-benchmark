@@ -1,4 +1,3 @@
-// filesystem
 const fs = require('fs')
 
 // data to test with...
@@ -32,5 +31,5 @@ tests.forEach((test) => {
     height = height / 2
   })
   console.timeEnd(test.name)
-	console.log('------------------------')
+  console.log('------------------------')
 })

@@ -1,9 +1,9 @@
 module.exports = function (data) {
-	function benchmark (test) {
-		test()
-	}
+  function benchmark (test) {
+    test()
+  }
 
-	return {
-		benchmark: benchmark
-	}
+  return {
+    benchmark: benchmark
+  }
 }
