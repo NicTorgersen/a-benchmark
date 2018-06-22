@@ -1,7 +1,7 @@
 module.exports = function (data) {
-  function benchmark (test) {
+  function benchmark (cb) {
     for (var i = 0; i < data.length; i++) {
-      test(data[i])
+      cb(data[i])
     }
   }
 

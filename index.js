@@ -1,13 +1,18 @@
 const fs = require('fs')
 
 // data to test with...
+const dataObj = {
+  width: 0,
+  height: 0,
+}
 const testData = () => {
   const data = []
   for (var i = 0; i < 100; i++) {
-    data.push({
-      height: i*100,
-      width: i*200,
+    let dataToPush = Object.assign({}, dataObj)
+    Object.keys(dataToPush).forEach((val, idx) => {
+      dataToPush[val] = (idx + (Math.random() * 100)) * 100
     })
+    data.push(dataToPush)
   }
   return data
 }
@@ -23,13 +28,18 @@ const tests = fs.readdirSync('./benchmarks').filter(file => {
 })
 
 // run the benchmarks
-tests.forEach((test) => {
+console.time('= all')
+
+tests.forEach((test, idx) => {
+  let hasPlus = ( (idx > 0) ? '+ ' : '' )
   test.name = test.name.replace('.js', '') // there's no need to output .js
-  console.time(test.name)
+  console.time(hasPlus + test.name)
   test.runtime.benchmark(({width, height}) => {
     width = width / 2
     height = height / 2
   })
-  console.timeEnd(test.name)
+  console.timeEnd(hasPlus + test.name)
   console.log('------------------------')
 })
+
+console.timeEnd('= all')

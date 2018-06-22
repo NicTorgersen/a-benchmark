@@ -1,9 +1,9 @@
 const _ = require('lodash/core');
 
 module.exports = function (data) {
-  function benchmark (test) {
+  function benchmark (cb) {
     _.forEach(data, (size) => {
-      test(size)
+      cb(size)
     })
   }
 

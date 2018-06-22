@@ -1,7 +1,7 @@
 module.exports = function (data) {
-  function benchmark (test) {
+  function benchmark (cb) {
     data.forEach((size) => {
-      test(size)
+      cb(size)
     })
   }
 
