@@ -1,4 +1,7 @@
+// filesystem
 const fs = require('fs')
+
+// data to test with...
 const testData = () => {
   const data = []
   for (var i = 0; i < 100; i++) {
@@ -10,6 +13,7 @@ const testData = () => {
   return data
 }
 
+// initialize test files from benchmarks-directory
 const tests = fs.readdirSync('./benchmarks').filter(file => {
   return file.indexOf('_') === -1
 }).map(file => {
@@ -19,7 +23,9 @@ const tests = fs.readdirSync('./benchmarks').filter(file => {
   }
 })
 
+// run the benchmarks
 tests.forEach((test) => {
+  test.name = test.name.replace('.js', '') // there's no need to output .js
   console.time(test.name)
   test.runtime.benchmark(({width, height}) => {
     width = width / 2
