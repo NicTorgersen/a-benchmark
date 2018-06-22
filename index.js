@@ -21,7 +21,7 @@ const tests = fs.readdirSync('./benchmarks').filter(file => {
 
 tests.forEach((test) => {
   console.time(test.name)
-	test.runtime.benchmark(({width, height}) => {
+  test.runtime.benchmark(({width, height}) => {
     width = width / 2
     height = height / 2
   })
